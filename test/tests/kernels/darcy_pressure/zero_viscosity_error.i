@@ -13,11 +13,15 @@
   []
   
   [Kernels]
-    [zero_viscosity]
-      type = DarcyPressure
-      variable = u
-      permeability = 0.8451e-09
-      viscosity = 0 # The viscosity must be a non-zero number, so this input should invoke an error
+    [diffusion]
+      type = DarcyPressure # Zero-gravity, divergence-free form of Darcy's law
+      variable = pressure # Operate on the "pressure" variable from above
+    []
+  []
+  
+  [Materials]
+    [filter]
+      type = PackedColumn # Provides permeability and viscosity of water through packed 1mm spheres
     []
   []
   
